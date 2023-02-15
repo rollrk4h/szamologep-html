@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Calculator</title>
+  </head>
+  <style>
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      transition: background-color 0.2s, color 0.2s;
+    }
+    #calculator {
+      max-width: 400px;
+      margin: 0 auto;
+      border: 2px solid #333;
+      border-radius: 10px;
+      background-color: var(--calculator-bg-color);
+      color: var(--calculator-text-color);
+      padding: 20px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 10px;
+    }
+
+    #display {
+      grid-column: 1 / -1;
+      border: 2px solid #333;
+      border-radius: 10px;
+      background-color: var(--display-bg-color);
+      color: var(--display-text-color);
+      font-size: 2em;
+      text-align: right;
+      padding: 10px;
+      overflow: hidden;
+    }
+
+    #previous-operand {
+      font-size: 0.5em;
+      float: left;
+      margin-left: 10px;
+      margin-top: 10px;
+    }
+
+    #current-operand {
+      float: right;
+      margin-right: 10px;
+      margin-top: 10px;
+    }
+
+    button {
+      font-size: 1.2em;
+      border: none;
+      border-radius: 5px;
+      background-color: var(--button-bg-color);
+      color: var(--button-text-color);
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: var(--button-hover-bg-color);
+      color: var(--button-hover-text-color);
+    }
+
+    button:active {
+      transform: scale(0.95);
+    }
+
+    #equals {
+      grid-column: 4 / -1;
+      grid-row: 5 / span 2;
+    }
+
+    #zero {
+      grid-column: 1 / span 2;
+      grid-row: 6;
+    }
+
+    #decimal {
+      grid-column: 3;
+      grid-row: 6;
+    }
+
+    #toggle-mode {
+      grid-column: 1 / -1;
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .light-mode {
+      --calculator-bg-color: #fff;
+      --calculator-text-color: #000;
+      --display-bg-color: #f0f0f0;
+      --display-text-color: #000;
+      --button-bg-color: #e0e0e0;
+      --button-text-color: #000;
+      --button-hover-bg-color: #ccc;
+      --button-hover-text-color: #000;
+    }
+
+    .dark-mode {
+      --calculator-bg-color: #333;
+      --calculator-text-color: #fff;
+      --display-bg-color: #222;
+      --display-text-color: #fff;
+      --button-bg-color: #444;
+      --button-text-color: #fff;
+      --button-hover-bg-color: #666;
+      --button-hover-text-color: #fff;
+    }
+  </style>
+  <body>
+    <div id="calculator">
+      <div id="display">
+        <div id="previous-operand"></div>
+        <div id="current-operand"></div>
+      </div>
+      <button id="clear">AC</button>
+      <button id="backspace">←</button>
+      <button id="divide">÷</button>
+      <button id="multiply">×</button>
+      <button id="subtract">-</button>
+      <button id="add">+</button>
+      <button id="equals">=</button>
+      <button id="decimal">.</button>
+      <button id="zero">0</button>
+      <button id="one">1</button>
+      <button id="two">2</button>
+      <button id="three">3</button>
+      <button id="four">4</button>
+      <button id="five">5</button>
+      <button id="six">6</button>
+      <button id="seven">7</button>
+      <button id="eight">8</button>
+      <button id="nine">9</button>
+      <button id="toggle-mode">Light/Dark</button>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="calculator.js"></script>
+  </body>
+</html>
